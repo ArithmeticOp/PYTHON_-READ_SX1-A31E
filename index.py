@@ -10,7 +10,11 @@ Register_L = (0x01)
 CRC_L = (0x6A)
 CRC_H = (0x4C)
 
-ser = serial.Serial('/dev/tty.wchusbserial14330',
+# find serial port
+# commands: ls /dev/tty.*
+# '/dev/tty.wchusbserial14330'
+serialPORT = ""
+ser = serial.Serial(serialPORT,
                     1200, parity=serial.PARITY_EVEN)
 print(ser.name)
 data = ([slaveID, FC, StartAdd_H, StartAdd_L,
